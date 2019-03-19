@@ -6,7 +6,8 @@ module Controller(
     WEA,
     WEB,
     counter
-)
+);
+
 input clock, Reset;
 
 output IncA, IncB, WEA, WEB;
@@ -21,7 +22,7 @@ begin
     if(Reset == 1'b1 || counter == 5'b10010)
         assign counter = 5'b0;
     else
-        assign counter += 1;
+        assign counter = counter + 1;
     
     if(counter >= 5'd1 && counter <= 5'd8)
         assign WEA = 1'b1;

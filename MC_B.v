@@ -24,7 +24,7 @@ always @(posedge clock)
                         if(WEB)
                             MemB[AddrB] <= DataInB;
                         if(IncB == 1'b0 && WEB == 1'b1)
-                            AddrB += 1;
+                            AddrB = AddrB + 1;
                     end
                 else
                     AddrB <= 2'b00;

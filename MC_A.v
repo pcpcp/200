@@ -25,7 +25,7 @@ always @(posedge clock)
                 if(IncA && WEA && !(DataInA === 8'bz))
                     begin
                         MemA[AddrA] = DataInA;
-                        AddrA += 1;
+                        AddrA = AddrA + 1;
                     end
                 else if(IncA && !WEA)
                     begin

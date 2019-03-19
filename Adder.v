@@ -12,6 +12,7 @@ wire [7:0] DOut1;
 wire [7:0] DOut2;
 reg [7:0] ADDOut;
 
-ADDOut <= DOut1 + DOut2;
+always @(*)
+    ADDOut <= DOut1 + DOut2;
 
 endmodule

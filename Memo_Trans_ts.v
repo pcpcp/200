@@ -8,16 +8,15 @@
 `include "Controller.v"
 
 module test;
-reg Reset,clock;
+reg Reset,clock,sign;
 reg[7:0] DataInA;
-wire WEA,WEB,IncA,IncB,Sign;
+wire WEA,WEB,IncA,IncB;
 wire [2:0]AddrA;
-wire[7:0]DOut1,DOut2,DataInB;
-reg [7:0]ADDOut,SUBOut;
+wire[7:0]Dout1,Dout2,DataInB, ADDOut, SUBOut;
 wire [1:0]AddrB;
 wire [4:0]counter;
 
-Integer k = 0;
+integer k = 0;
 
 MC_A ma(
     .IncA(IncA),
@@ -59,7 +58,7 @@ Subber sb(
 Comparator cp(
     .DOut1(DOut1),
     .DOut2(DOut2),
-    .Sign(Sign),
+    .Sign(Sign)
 );
 
 Controller ct(
@@ -77,7 +76,7 @@ begin
 	clock = 1'b0;
 	Reset = 1'b1;
 	DataInA = 8'b0;
-    for(k = 0; k < 20; k++)
+    for(k = 0; k < 20; k = k + 1)
     begin
           #10 clock = ~clock;
     end
